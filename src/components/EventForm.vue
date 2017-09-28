@@ -22,8 +22,9 @@
         methods: {
             create() {
                 if (this.description.length) {
-                    this.$store.commit('addEvent', this.description);
-                    this.close();
+                    this.$store.dispatch('addEvent', this.description).then(_ => {
+                        this.close(); 
+                    });
                 }
             },
             close() {
